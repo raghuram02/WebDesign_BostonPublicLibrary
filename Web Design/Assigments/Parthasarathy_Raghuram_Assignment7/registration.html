@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" type="image/ico" href="images/list1.ico" />
+<title>Express-O Coffee - Menu</title>
+<meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"/>
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+ <header>
+	<img src="images/header2.jpg" alt="Logo" height="250" width="1500" usemap="#home">
+  <map name="home">
+    <area shape="rect" coords="250,103,500,200" href="expresshome.html" title="expresshome" alt="expresshome" />
+    <area shape="default" nohref="nohref" title="Default" alt="Default"/>
+  </map>
+  <style>
+  #qw{
+    position: absolute;
+    z-index: 100;
+    top: 980px;
+  }
+  #validateForm label.error {
+    color:red;
+  }
+  #validateForm input.error {
+    border:1px solid red;
+  }
+    </style>
+  </header>
+  <link rel="stylesheet" type="text/css" href="default.css">
+</head>
+
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+$('#submit').click(function(e) {
+// Initializing Variables With Form Element Values
+var firstname = $('#fname').val();
+var lastname = $('#lname').val();
+var add = $('#address').val();
+var age = $('#spinner').val();
+var num = $('#number').val();
+var mail = $('#email').val();
+// Initializing Variables With Regular Expressions
+var name_regex = /^[a-zA-Z]+$/;
+var email_regex = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+var add_regex = /^[0-9a-zA-Z]+$/;
+var zip_regex = /^[0-9]+$/;
+// To Check Empty Form Fields.
+if (firstname.length == 0) {
+$('#head').text("* All fields are mandatory *"); // This Segment Displays The Validation Rule For All Fields
+$("#fname").focus();
+return false;
+}
+// Validating Name Field.
+else if (!firstname.match(name_regex) || firstname.length == 0) {
+$('#p1').text("* For your name please use alphabets only *"); // This Segment Displays The Validation Rule For Name
+$("#fname").focus();
+return false;
+}
+// Validating Username Field.
+else if (!(lastname.length >= 6 && lastname.length <= 8) || lastname.length == 0) {
+$('#p2').text("* Please enter between 6 and 8 characters *"); // This Segment Displays The Validation Rule For Username
+$("#lname").focus();
+return false;
+}
+// Validating Email Field.
+else if (!mail.match(email_regex) || mail.length == 0) {
+$('#p3').text("* Please enter a valid email address *"); // This Segment Displays The Validation Rule For Email
+$("#email").focus();
+return false;
+}
+// Validating Select Field.
+else if (age == "Please Choose") {
+$('#p4').text("* Please Choose any one option"); // This Segment Displays The Validation Rule For Selection
+$("#age").focus();
+return false;
+}
+// Validating Address Field.
+else if (!add.match(add_regex) || add.length == 0) {
+$('#p5').text("* For Address please use numbers and letters *"); // This Segment Displays The Validation Rule For Address
+$("#address").focus();
+return false;
+}
+// Validating Zip Field.
+else if (!num.match(zip_regex) || num.length == 0) {
+$('#p6').text("* Please enter a valid number *"); // This Segment Displays The Validation Rule For Zip
+$("#number").focus();
+return false;
+} else {
+alert("Form Submitted Successfuly!");
+return true;
+}
+});
+});
+
+
+
+$(function() {
+    $( document ).tooltip();
+  });
+$(function() {
+    $("#datepicker").datepicker();
+    });
+$(function() {
+    $("#slider").slider();
+    });
+$(function() {
+    $("#spinner").spinner();
+    });
+      $(function() {
+    $( "#accordion" ).accordion();
+  });                                          
+$(function() {
+            var availableTutorials = [
+               "Argentina",
+               "Brazil",
+               "Cairo",
+               "Denmark",
+               "Egypt",
+               "Finland",
+               "Germany",
+               "Hungary",
+               "India",
+               "Jordan",
+               "Kenya",
+               "Libya",
+               "Morocco",
+               "Nigeria",
+               "Omaha",
+               "Poland",
+               "Quatar",
+               "Russia",
+               "Spain",
+               "Turkey",
+               "Uruguay",
+               "Vietnam",
+               "Wyoming",
+               "Yokozuna",
+               "Zimbabwe",
+            ];
+            $("#address").autocomplete({
+               source: availableTutorials
+            });
+         });
+</script>
+
+<body id ="bg" style="background-color:#f2f2f2;"></br>
+<nav id = "nav">
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "expresshome.html"><b>Home &nbsp;</b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;" href = "menu.html"><b>Menu &nbsp;</b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "aboutus.html"><b>About Us &nbsp;</b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "careers.html"><b>Careers </b></a>
+   <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "feedback.html"><b>Feedback &nbsp; </b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "registration.html"><b>Registration &nbsp; </b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "placeorder.html"><b>Place Order &nbsp; </b></a>  
+</nav>
+<main> 
+  <h1 align="center">Registration Form</h1>
+<p id="head"></p>
+<nav id = "nav">
+  <form method="post" id="validateForm" name="myForm">   
+        <div style="position:relative; left:250px; width:800px" id="accordion">
+         <h1><label>Your First name: </label></h1>
+        <div>
+          <input type="text" title="Please enter your First Name" placeholder="First name" name="fname" id="fname" >
+          <p id="p1"></p><br>
+        </div>          
+          <h1><label>Your Last name: </label></h1>
+        <div>
+          <input type="text" title="Please enter your last name" placeholder="Last name" name="lname" id="lname" >
+          <p id="p2"></p>
+        </div>
+          <h1><label>Your Address: </label></h1>
+        <div>
+          <input type="text" title="Please enter your Address" placeholder="Address" id="address" name="address" >
+          <p id="p5"></p>
+        </div>
+          <h1><label>Your Age: </label></h1>
+        <div>
+          <input type="number" title="Please enter your age" placeholder="Age"  min ="0" id="spinner" >
+          <p id="p4"></p>
+        </div>
+          <h1><label>Your Rating: </label></h1>
+        <div>
+          <div id="slider" >
+          </div>
+        </div>
+          <h1><label>Your Date of Birth: </label></h1>
+        <div>
+          <input type="text" title="Please enter your date of birth" id="datepicker" name ="date" placeholder="Date of Birth">
+          <p id="p7"></p>
+        </div>
+          <h1><label>Your email: </label></h1>
+        <div>
+          <input type="email" title="Please enter your email" placeholder="xyz@yahoo.com" id="email" name="email" >
+          <p id="p3"></p>
+        </div>
+          <h1><label>Your Phone number: </label></h1>
+        <div>
+          <input type="text" title="Please enter your phone number for a lucky draw." id ="number" placeholder="Phone Number" name="number">
+        <p id="p6"></p>  
+        </div>
+          
+                            <br>
+      </div>
+<button id="submit" > Submit</button>
+</form></nav></br>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+ <table id ="qw" width="100%" border="0" cellspacing="0" cellpadding="0" >
+  <tr>
+    <td width="25%" align = "left"><img src="images/social.png" alt="Web Logos" height="50" width="300" usemap="#social" /></td>
+<map name="social">
+    <area shape="rect" coords="5,1,50,50" href="https://www.facebook.com/ExpressoCoffeeCompany/" title="Fb" target = "blank" alt="Fb" />
+    <area shape="rect" coords="120,1,50,50" href="https://twitter.com/hashtag/expresso" title="twitter.org" target = "blank" alt="twitter.org" />
+    <area shape="rect" coords="180,1,120,50" href="https://www.instagram.com/explore/tags/expressocoffee/" title="instagram" target = "blank" alt="instagram" />
+    <area shape="rect" coords="240,1,180,50" href="https://www.pinterest.com/akaaneesa/coffee-espresso-espresso-bars/" title="pintrest.org" target = "blank" alt="pintrest.org" />
+    <area shape="rect" coords="300,1,240,50" href="https://plus.google.com/106796006053686447789" title="gplus" target = "blank" alt="gplus"/>
+    <area shape="default" nohref="nohref" title="Default" alt="Default"/>
+</map>
+<img src="images/ban.jpg" width="1500" height="200" />
+      <td width="25%" align = "center"><small><i><b>Copyright &copy; 2016</b> <a href = "expresshome.html" style="color: #663300"><b>Express-O Coffee</b></a>. <b>All rights reserved</b></i></small></td>
+      <td width="25%" align = "center"><small><i><a href = "privacy.html"style="color: #663300" ><b>Terms & conditions</b></a></i></small></td>
+      <td width="15%" align = "center"><small><i><a target = "blank" style="color: #663300"href = "https://login.microsoftonline.com/"><b>Email Us</b></a></i></small></td>
+</tr>
+  </table>
+  
+</footer>
+</body>
+</html>

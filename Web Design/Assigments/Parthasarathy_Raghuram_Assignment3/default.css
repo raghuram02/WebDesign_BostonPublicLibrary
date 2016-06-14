@@ -1,0 +1,117 @@
+#index {
+    
+    z-index: 1;
+	position: absolute;
+	color: #ffffff;
+	left: 200px;
+	top: 300px;
+	float: left;
+}
+#id2{
+	display: none;
+}
+#bg  {
+    background-image: url("javabackground.gif");
+ 
+}
+nav ul { list-style-type: none; 
+         margin: 0;
+         padding: 0;
+         text-align: center;
+}
+nav li { padding: 5px;
+}
+
+
+nav a:link { color: #ffffff; }
+nav a:visited { color: #865a2c; }
+nav a:hover {   background-color: #996733;transition: background-color 0.30s linear; color: #734d26;}
+nav { float: left;
+	   width: 150px;
+	   letter-spacing:0.1em;
+	   font-weight: bold;
+	   background-color: #dfc09f;
+	   height:450px;
+}
+  nav a { border-style: none;
+  text-decoration: none;}
+
+
+header { background-color: #d9b38c;
+        color: #00005D; 
+		padding: 5px;
+		text-align: center
+}
+
+footer { background-color: #d9b38c;
+        
+		padding: 10px;
+		text-align: center
+}
+#wrapper{
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 0px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.list{
+	list-style-image: url('list.jpg');
+	
+}
+@media only screen and (max-width: 64em) {
+  body { margin: 0; }
+  #wrapper { width: auto; }
+  main { margin-left: 0; }
+  nav { float: none;
+        width: auto; }
+  nav li { display: inline-block;
+            }
+  nav ul { text-align: center; }
+  #id1{
+    display: block;
+  }
+  #id2{
+    display: none;
+  }
+  #index{
+      width: auto;padding :20px;
+      position: absolute;
+      color: #734d26;
+      left: 0px;
+     }
+  nav a { border-style: none;}
+  h1, h2 { font-size: 120%;
+  width: auto; }
+  div 
+ 
+ main img { display: none;}
+  p { font-size: 90%; }
+}
+@media only screen and (max-width: 37.5em) {
+     h1, h2 { font-size: 100%;
+      padding :50px;
+     width: auto; }
+     #index{
+     	color: #734d26;
+      width: auto;
+      top : 250px;
+      position: absolute;
+      left: 0px;
+     }
+     #id2{
+    display: block;
+  }
+  #id1{
+    display: none;
+  }
+     
+     span { font-size: 80%; }
+    main img { display: none;}
+     nav, nav ul, nav li { padding: 0; }
+     nav li { display: block; padding :10px;}
+     nav a { display: block;
+             
+              }
+}

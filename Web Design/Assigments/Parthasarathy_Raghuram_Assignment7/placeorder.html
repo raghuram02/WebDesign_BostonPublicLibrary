@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" type="image/ico" href="images/list1.ico" />
+<title>Express-O Coffee - Menu</title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<header>
+  <img src="images/header2.jpg" alt="Logo" height="250" width="1500" usemap="#home">
+  <map name="home">
+    <area shape="rect" coords="250,103,500,200" href="expresshome.html" title="expresshome" alt="expresshome" />
+    <area shape="default" nohref="nohref" title="Default" alt="Default"/>
+  </map>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <style>
+  #qw{
+    position: absolute;
+    z-index: 100;
+    top: 710px;
+  }
+
+  </style>
+  </header>
+  <link rel="stylesheet" type="text/css" href="default.css">
+</head>
+<script type="text/javascript">
+function findUser(username)
+  {
+    var nameEquals = username + "=";
+    var input = document.cookie.split(';');
+      for(var i=0; i<input.length; i++) 
+      {
+          var a = input[i];
+          while (a.charAt(0)==' ') a = a.substring(1);
+          if (a.indexOf(nameEquals) == 0) 
+          {
+            var set = 1;
+            break;
+          }
+          else
+          {
+            var set =0;
+          }
+      }
+      if (set == 1)
+      {
+        var cookiesplit=document.cookie.split(nameEquals)[1].split(";")[0];
+        var collection= cookiesplit.split("---"); 
+        document.getElementById("username").value = collection[0];
+        document.getElementById("milk").value = collection[1];
+        document.getElementById("sugar").value = collection[2];
+        document.getElementById("coffee").value = collection[3];
+             }
+      else
+      {
+        alert("user does not exist! ");
+      }
+      
+  }
+</script>
+<script>
+  function addUser()
+  {
+     document.cookie = "username=" + document.getElementById("username").value;
+     alert("User added!!. Please add your preference");
+  }
+</script>
+<script>
+  function placeOrder()
+  {
+    var username = document.getElementById("username").value;
+    var milk = document.getElementById("milk").value;
+    var sugar = document.getElementById("sugar").value;
+    var coffee = document.getElementById("coffee").value;
+    var userdata = username + "---" + milk + "---" + sugar + "---" + coffee;
+    createCookie(username,userdata,"","");
+    alert("Order Placed Successfully");
+  }
+
+  function createCookie(name, value, days, path, domain, secure)
+  {
+    if (days) {
+
+        var date=new Date();
+        date.setTime(date.getTime()+ (days*24*60*60*1000));
+        var expires=date.toGMTString();
+
+     }
+
+     else var expires = "";
+
+     cookieString= name + "=" + escape (value);
+
+     if (expires)
+     cookieString += "; expires=" + expires;
+
+     if (path)
+     cookieString += "; path=" + escape (path);
+
+     document.cookie=cookieString;
+  }
+</script>
+<body id ="bg" style="background-color:#f2f2f2;"><br>
+<nav id = "nav">
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "expresshome.html"><b>Home &nbsp;</b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;" href = "menu.html"><b>Menu &nbsp;</b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "aboutus.html"><b>About Us &nbsp;</b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "careers.html"><b>Careers </b></a>
+ <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "feedback.html"><b>Feedback &nbsp; </b></a>
+  <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "registration.html"><b>Registration &nbsp; </b></a>   
+   <a style="background:#331a00; color: white; border-radius: 25px; padding : 10px 20px; text-decoration: none;"  href = "#"><b>Place Order &nbsp; </b></a>   
+</nav>
+<main>
+
+<h1 align="center">Place Order</h1><br>
+<nav id = "nav">
+<form  name="myForm">
+        <table width="30%" align="center">
+          <tr>
+      <td> User name: </td>
+      <td> <input type="text" name="username" id ="username"></td>
+       </tr>
+       <tr><td><input type="button" value="Find User" onclick="findUser(username.value);"></td> 
+       <td><input type="button" id ="aduser" value="Add User" onclick="addUser();"> </td></tr>
+         <br> <tr><td align="center"><strong>Milk:</strong></td>
+            <td align="center" width="20%">
+            <SELECT name="milk" id="milk">
+         <OPTION value="Wheatmilk">Wheat milk</OPTION>
+         <OPTION value="Wholemilk">Whole Milk</OPTION>
+          </SELECT></td>
+          </tr>
+         <tr><td align="center"><strong>Sugar:</strong></td>
+            <td align="center" >
+            <SELECT name="sugar" id="sugar">
+         <OPTION value="lsugar">Low Sugar</OPTION>
+         <OPTION value="hsugar">high Sugar</OPTION>
+          </SELECT></td>
+          </tr>
+          <tr><td align="center"><strong>Coffee:</strong></td>
+            <td align="center"  >
+            <SELECT name="coffee" id="coffee">
+         <OPTION value="cappucino">cappucino</OPTION>
+         <OPTION value="latte">latte</OPTION>
+         <OPTION value="expresso">expresso</OPTION>
+          </SELECT></td>
+          </tr>
+                  </table><br><br>
+                <input type="button" onclick="placeOrder()" value="Submit"> 
+</form></nav>
+
+<br/>
+</main>
+<footer>
+ <table id ="qw" width="100%" border="0" cellspacing="0" cellpadding="0" >
+  <tr>
+    <td width="25%" align = "left"><img src="images/social.png" alt="Web Logos" height="50" width="300" usemap="#social" /></td>
+<map name="social">
+    <area shape="rect" coords="5,1,50,50" href="https://www.facebook.com/ExpressoCoffeeCompany/" title="Fb" target = "blank" alt="Fb" />
+    <area shape="rect" coords="120,1,50,50" href="https://twitter.com/hashtag/expresso" title="twitter.org" target = "blank" alt="twitter.org" />
+    <area shape="rect" coords="180,1,120,50" href="https://www.instagram.com/explore/tags/expressocoffee/" title="instagram" target = "blank" alt="instagram" />
+    <area shape="rect" coords="240,1,180,50" href="https://www.pinterest.com/akaaneesa/coffee-espresso-espresso-bars/" title="pintrest.org" target = "blank" alt="pintrest.org" />
+    <area shape="rect" coords="300,1,240,50" href="https://plus.google.com/106796006053686447789" title="gplus" target = "blank" alt="gplus"/>
+    <area shape="default" nohref="nohref" title="Default" alt="Default"/>
+</map>
+<img src="images/ban.jpg" width="1500" height="200" />
+      <td width="25%" align = "center"><small><i><b>Copyright &copy; 2016</b> <a href = "expresshome.html" style="color: #663300"><b>Express-O Coffee</b></a>. <b>All rights reserved</b></i></small></td>
+      <td width="25%" align = "center"><small><i><a href = "privacy.html"style="color: #663300" ><b>Terms & conditions</b></a></i></small></td>
+      <td width="15%" align = "center"><small><i><a target = "blank" style="color: #663300"href = "https://login.microsoftonline.com/"><b>Email Us</b></a></i></small></td>
+</tr>
+  </table>
+  
+</footer>
+</body>
+</html>
